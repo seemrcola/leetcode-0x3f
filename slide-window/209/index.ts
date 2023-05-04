@@ -1,4 +1,5 @@
-function minSubArrayLen(target: number, nums: number[]): number {
+// 长度最小子数组
+export function minSubArrayLen(target: number, nums: number[]): number {
   let ans = nums.length + 1
   let left = 0 
   let right = 0
