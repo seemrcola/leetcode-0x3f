@@ -5,10 +5,13 @@ export function threeSum(nums: number[]): number[][] {
 
   nums.sort((a, b) => a - b)
 
+  // 优化部分，如果最小的三个数都大于0，那么就不用继续了
   if(nums[0] + nums[1] + nums[2] > 0) return ans
+  // 优化部分，如果最大的三个数都小于0，那么就不用继续了
   if(nums[len - 1] + nums[len - 2] + nums[len - 3] < 0) return ans
 
-  for(let i = 0; i< nums.length - 2; i++) {
+  // 记得给start， end留个地方，所以是len - 2
+  for(let i = 0; i< len - 2; i++) {
       if(nums[i] === nums[i-1]) continue
 
       let cur = nums[i]
