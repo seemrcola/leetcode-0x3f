@@ -40,15 +40,15 @@ export function threeSumClosest(nums: number[], target: number): number {
 
     while (start < end) {
       const total = nums[i] + nums[start] + nums[end]
-
+      // 太大了就缩小total
       if (total > target)
         end--
-
+      // 太小了就增大total
       else if (total < target)
         start++
-
+      // 相等就直接返回
       else return target
-
+      // 判断谁里的更新
       if (Math.abs(total - target) < Math.abs(ans - target))
         ans = total
     }
