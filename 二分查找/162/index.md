@@ -27,11 +27,7 @@
 
 #### 思路整理
 1. 很容易想到的就是找到最大值，最大值一定是峰值，但是这样的时间复杂度是O(n)
-2. 那么我们可以使用二分查找，因为题目中说了nums[-1] = nums[n] = -∞，那么我们可以根据这个条件来进行二分查找
-3. 如果nums[mid] < nums[mid + 1]，那么说明mid左边一定有峰值，因为nums[-1] = -∞，那么我们就可以将blue指向mid + 1
-4. 如果nums[mid] > nums[mid + 1]，那么说明mid右边一定有峰值，因为nums[n] = -∞，那么我们就可以将red指向mid
-5. 如果nums[mid] === nums[mid + 1]，那么说明mid左右都有峰值，那么我们可以将blue指向mid + 1，也可以将red指向mid
-6. 二分查找结束之后，blue和red指向的就是峰值
+2. 那么我们可以使用二分查找，假设要找的就是某个峰值。
 
 ```ts
 export function findPeakElement(nums: number[]): number {
