@@ -44,12 +44,12 @@ function findMin(nums: number[]): number {
   let high = len - 1
   while (low < high) {
     const pivot = low + Math.floor((high - low) / 2)
+    // 二分的难点往往在于边界处理，这里我们实际上就是找到哪一半是有序的。
+    // 此时我们将范围缩小到无序的那一半，因为答案就在那一半。
     if (nums[pivot] < nums[high])
-      high = pivot
-
+      high = pivot // 根据图谱可知，如果小于high，那么右侧是有序的，所以我们将high设置为pivot，为什么不是pivot-1，因为piovt只能保证后侧的值有序，但是不能保证自身以及前侧的值有序
     else
-      low = pivot + 1
-
+      low = pivot + 1 // 否则左侧是有序的，所以我们将low设置为pivot+1，为什么+1，因为在有序这边，可以确定不是最小值
   }
   return nums[low]
 }
